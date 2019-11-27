@@ -7,7 +7,7 @@ public class WordBook {
 
     private HashMap<String,String> wordbook = new HashMap<String, String>();
 
-    public void saveWordbook(String fileName) {
+    public void save(String fileName) {
         try {
             WordsSerializer.save(wordbook,fileName);
         } catch (IOException e) {
@@ -15,9 +15,9 @@ public class WordBook {
         }
     }
 
-    public void loadWordbook(String fileName) {
+    public void load(String fileName) {
         try {
-            wordbook.putAll(WordsSerializer.load(fileName));
+            wordbook = WordsSerializer.load(fileName);
         } catch (IOException e) {
             System.out.println("IOException: " + fileName + " does not exist");
         } catch (ClassNotFoundException e) {
@@ -35,5 +35,9 @@ public class WordBook {
 
     public String getTranslate(String englishWord) {
         return wordbook.get(englishWord);
+    }
+
+    public HashMap<String, String> getWordbook() {
+        return wordbook;
     }
 }
