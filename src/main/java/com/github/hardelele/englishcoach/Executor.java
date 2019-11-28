@@ -47,6 +47,11 @@ public class Executor {
     }
 
     public void startTest() {
+        Test test = new Test();
+        test.generate(wordBook.getWordbook());
+        test.start();
+        userInterface.printResult(test);
+        menu();
     }
 
     public void removeWord() {
@@ -61,14 +66,16 @@ public class Executor {
     }
 
     public void saveWordbook() {
+        userInterface.printFileNameAsk();
         String fileName = userInterface.inputString();
-        wordBook.load(fileName);
+        wordBook.save(fileName);
         menu();
     }
 
     public void loadWordbook() {
+        userInterface.printFileNameAsk();
         String fileName = userInterface.inputString();
-        wordBook.save(fileName);
+        wordBook.load(fileName);
         menu();
     }
 
