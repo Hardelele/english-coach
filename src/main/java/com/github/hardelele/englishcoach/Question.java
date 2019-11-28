@@ -42,7 +42,7 @@ public class Question {
     }
 
     public boolean checkAnswer(int receivedAnswerId) {
-        return options[receivedAnswerId].equals(russianWordAnswer);
+        return options[receivedAnswerId-1].equals(russianWordAnswer);
     }
 
     public String[] getOptions() {
@@ -51,5 +51,13 @@ public class Question {
 
     public void setRussianWordAnswer(String russianWordAnswer) {
         this.russianWordAnswer = russianWordAnswer;
+    }
+
+    public String getEnglishWordAnswer() {
+        return englishWordAnswer;
+    }
+
+    public String getRussianWordAnswer() {
+        return russianWordAnswer;
     }
 }
