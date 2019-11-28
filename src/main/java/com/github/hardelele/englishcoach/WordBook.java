@@ -1,5 +1,6 @@
 package com.github.hardelele.englishcoach;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -11,7 +12,15 @@ public class WordBook {
         try {
             WordsSerializer.save(wordbook,fileName);
         } catch (IOException e) {
-            System.out.println("IOException: " + fileName + " does not exist");
+            System.err.println("IOException: " + fileName + " does not exist");
+            File file = new File(fileName);
+            try {
+                file.createNewFile();
+            } catch (IOException ex) {
+                System.err.println("IOException: " + fileName + " cant be created");
+            }
+            System.out.println("File  " + fileName + " automatically created");
+            save(fileName);
         }
     }
 
