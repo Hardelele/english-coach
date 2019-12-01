@@ -6,7 +6,8 @@ public class Executor {
 
     UserInterface userInterface = new UserInterface();
 
-    Executor() {
+    Executor(String[] args) {
+        wordBook.parseFromTxt(args[0]);
         menu();
     }
 
